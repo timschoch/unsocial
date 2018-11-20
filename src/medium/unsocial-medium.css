@@ -1,0 +1,18 @@
+.unsocial-mystory .multirecommend {
+    opacity: 0 !important;
+    transition: opacity 0.1s ease-in;
+}
+
+/* hide meta functions everywhere on medium */
+.unsocial .popover--menu .list-item:nth-child(2), /* stats link in article menu */
+.unsocial .notificationsList-item,
+.unsocial .notificationsList-actions,
+.unsocial .popover--userActions .list-item:nth-of-type(6), /* stats link in profile menu */
+.unsocial .dl.gb.t.gc.by .dl:nth-of-type(6), /* stats link in profile menu on profile page */ 
+/* only hide social "features" on your own articles */
+.unsocial-mystory .postMetaHeader-socialProof2,
+.unsocial-mystory .multirecommend,
+.unsocial-mystory .be.j, /* followers on profile page */ 
+.unsocial-mystory .du.t.co.u /* claps on profile page */ {
+    display: none !important;
+}
