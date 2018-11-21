@@ -16,3 +16,16 @@
 .unsocial-mystory .du.t.co.u /* claps on profile page */ {
     display: none !important;
 }
+
+.unsocial .button.button--activity.button--filled {
+    background: transparent;
+}
+.unsocial .button.is-active > .button-defaultState {
+    display: inline-block;
+}
+.unsocial .button--activity .svgIcon {
+    fill: rgba(0,0,0,.54);
+}
+.unsocial .button.button--withIcon.is-active > .button-activeState {
+    display: none;
+}
