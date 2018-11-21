@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "unsocial",
+    "version": "1.0",
+
+    "permissions": ["storage"],
+
+    "options_page": "src/options.html",
+    
+    "content_scripts": [
+      {
+        "matches": ["https://medium.com/*"],
+        "js": ["src/medium/unsocial-medium.js"],
+        "css": ["src/medium/unsocial-medium.css"]
+      }
+    ]
+  }

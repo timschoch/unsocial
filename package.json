@@ -1,0 +1,21 @@
+{
+  "name": "unsocial",
+  "version": "1.0.0",
+  "description": "Removes \"social\" features from my most used online platforms",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timschoch/unsocial.git"
+  },
+  "author": "Tim Schoch",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/timschoch/unsocial/issues"
+  },
+  "homepage": "https://github.com/timschoch/unsocial#readme"
+}
