@@ -1,0 +1,42 @@
+{
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDescription__",
+  "version": "1.0",
+  "manifest_version": 2,
+  "default_locale": "en",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+
+  "__firefox__options_ui": {
+    "page": "pages/options.html",
+    "browser_style": true
+  },
+  "__chrome__options_page": "pages/options.html",
+  "__firefox__applications": {
+    "gecko": {
+      "id": "unsocial@timschoch.com",
+      "strict_min_version": "42.0"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://medium.com/*"
+      ],
+      "js": [
+        "scripts/unsocial-medium.js"
+      ],
+      "css": [
+        "styles/unsocial-medium.css"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  
+  "permissions": [
+    "storage"
+  ]
+}

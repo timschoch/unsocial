@@ -2,11 +2,12 @@
   "name": "unsocial",
   "version": "1.0.0",
   "description": "Removes \"social\" features from my most used online platforms",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webextension-toolbox dev",
+    "build": "webextension-toolbox build"
+  },
+  "devDependencies": {
+    "webextension-toolbox": "latest"
   },
   "repository": {
     "type": "git",

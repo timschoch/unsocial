@@ -1,0 +1,85 @@
+body {
+    background-color: #f9f9fa;
+}
+section {
+    background-color: white;
+    padding: 20px 20px;
+    margin-bottom: 10px;
+}
+.collapsible-toggle {
+    vertical-align: bottom;
+    line-height: 20px;
+    margin-right: 10px;
+}
+.collapsible-label {
+    vertical-align: top;
+    line-height: 20px;
+    color: #777;
+    font-size: 20px;
+    font-weight: bold;
+}
+.collapsible-toggle:checked + .collapsible-label {
+    color: inherit;    
+}
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+}
+.collapsible-toggle:checked  ~ .collapsible-content  {
+    max-height: 500px;
+}
+    .collapsible-content label {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+
+.medium-username {
+    position: relative;
+}
+.medium-username input {
+    padding-left: 20px;
+}
+.medium-username:before {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    content: '@';
+}
+
+.save-indicator-container {
+    position: relative;
+    height: 10px;
+    margin-bottom: 10px;
+}
+.save-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100%;
+    height: 1px;
+    background: green;
+}
+
+.save-indicator-container.save .save-indicator {
+    animation: save-indicator-animation 0.5s linear 1;
+}
+
+@keyframes save-indicator-animation {
+    0% {
+        left: 0;
+        right: 100%;
+    }
+    20% {
+        left: 0;
+        right: 20%;
+    }
+    60% {
+        left: 20%;
+        right: 0;
+    }
+    100% {
+        left: 100%;
+        right: 0;
+    }
+}
