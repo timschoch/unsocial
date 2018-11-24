@@ -1,3 +1,36 @@
+section {
+    background-color: white;
+    padding: 20px 20px;
+    margin-bottom: 10px;
+}
+.collapsible-toggle {
+    vertical-align: bottom;
+    line-height: 20px;
+    margin-right: 10px;
+}
+.collapsible-label {
+    vertical-align: top;
+    line-height: 20px;
+    color: #777;
+    font-size: 20px;
+    font-weight: bold;
+}
+.collapsible-toggle:checked + .collapsible-label {
+    color: inherit;    
+}
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+}
+.collapsible-toggle:checked  ~ .collapsible-content  {
+    max-height: 500px;
+}
+    .collapsible-content label {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+
 .medium-username {
     position: relative;
 }

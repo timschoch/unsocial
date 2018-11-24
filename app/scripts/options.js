@@ -1,17 +1,12 @@
-let browser = chrome || browser;
-const mediumEnable = document.querySelector('#medium-enable');
-const mediumUsername = document.querySelector('#medium-username');
-
 /*
 Store the currently selected settings using browser.storage.sync.
 */
 function storeSettings() {
-  // sanitize some settings
-  let mediumUsernameValue = mediumUsername.value.replace(/^@/,'');
+  // console.log('storeSettings');
   browser.storage.sync.set({
     medium: {
-      enable: mediumEnable.checked,
-      username: mediumUsernameValue
+      enable: document.querySelector('#medium-enable').checked,
+      username: document.querySelector('#medium-username').value.toLowerCase().replace(/^@/,'')
     }
   },() => { 
     browser.storage.sync.get(updateUI);
@@ -23,9 +18,9 @@ Update the options UI with the settings values retrieved from storage,
 or the default settings if the stored settings are empty.
 */
 function updateUI(restoredSettings) {
-    console.log( 'restoredSettings', restoredSettings );
-    mediumEnable.checked = restoredSettings.medium.enable || false;
-    mediumUsername.value = restoredSettings.medium.username || "";
+  // console.log('restoredSettings', restoredSettings);
+  document.querySelector('#medium-enable').checked = restoredSettings.medium.enable;
+  document.querySelector('#medium-username').value = restoredSettings.medium.username;
 }
 
 function onError(e) {
@@ -35,10 +30,15 @@ function onError(e) {
 /*
 On opening the options page, fetch stored settings and update the UI with them.
 */
-browser.storage.sync.get(updateUI);
+browser.storage.sync.get({
+  medium: {
+    enable: false,
+    username: ''
+  }
+}, updateUI);
 
 /*
 On blur, save the currently selected settings.
 */
-mediumEnable.addEventListener("blur", storeSettings);
-mediumUsername.addEventListener("blur", storeSettings);
+document.querySelector('#medium-enable').addEventListener("blur", storeSettings);
+document.querySelector('#medium-username').addEventListener("blur", storeSettings);
