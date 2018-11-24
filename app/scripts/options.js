@@ -8,7 +8,13 @@ function storeSettings() {
       enable: document.querySelector('#medium-enable').checked,
       username: document.querySelector('#medium-username').value.toLowerCase().replace(/^@/, '')
     }
-  }).then(getSettings, onError);
+  }).then(() => {
+    document.querySelector( '.save-indicator-container' ).classList.add('save');
+    setTimeout(() => {
+      document.querySelector( '.save-indicator-container' ).classList.remove('save');
+    }, 2000);
+    getSettings();
+  }, onError);
 }
 
 /*
