@@ -6,11 +6,16 @@ function storeSettings() {
   browser.storage.sync.set({
     medium: {
       enable: document.querySelector('#medium-enable').checked,
-      username: document.querySelector('#medium-username').value.toLowerCase().replace(/^@/,'')
+      username: document.querySelector('#medium-username').value.toLowerCase().replace(/^@/, '')
     }
-  },() => { 
-    browser.storage.sync.get(updateUI);
-  });
+  }).then(getSettings, onError);
+}
+
+/*
+On opening the options page, fetch stored settings and update the UI with them.
+*/
+function getSettings() {
+  browser.storage.sync.get().then(updateUI, onError);
 }
 
 /*
@@ -18,9 +23,19 @@ Update the options UI with the settings values retrieved from storage,
 or the default settings if the stored settings are empty.
 */
 function updateUI(restoredSettings) {
-  // console.log('restoredSettings', restoredSettings);
-  document.querySelector('#medium-enable').checked = restoredSettings.medium.enable;
-  document.querySelector('#medium-username').value = restoredSettings.medium.username;
+  let settings = Object.assign(
+    {},
+    {
+      medium: {
+        enable: false,
+        username: ''
+      }
+    },
+    restoredSettings
+  );
+  // console.log('settings', settings);
+  document.querySelector('#medium-enable').checked = settings.medium.enable;
+  document.querySelector('#medium-username').value = settings.medium.username;
 }
 
 function onError(e) {
@@ -28,14 +43,9 @@ function onError(e) {
 }
 
 /*
-On opening the options page, fetch stored settings and update the UI with them.
+Inititalize view
 */
-browser.storage.sync.get({
-  medium: {
-    enable: false,
-    username: ''
-  }
-}, updateUI);
+getSettings();
 
 /*
 On blur, save the currently selected settings.
