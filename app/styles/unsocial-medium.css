@@ -4,9 +4,9 @@
 }
 
 /* hide meta functions everywhere on medium */
+.unsocial .unsocial-display-none,
 .unsocial .popover--menu .list-item:nth-child(2), /* stats link in article menu */
-.unsocial .notificationsList-item,
-.unsocial .notificationsList-actions,
+.unsocial .notificationsList-actions .u-floatRight,
 .unsocial .popover--userActions .list-item:nth-of-type(6), /* stats link in profile menu */
 .unsocial .dl.gb.t.gc.by .dl:nth-of-type(6), /* stats link in profile menu on profile page */ 
 /* only hide social "features" on your own articles */
